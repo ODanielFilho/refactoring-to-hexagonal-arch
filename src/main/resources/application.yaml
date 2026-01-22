@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: refactoring-to-hexagonal-arch
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/app_db
+    username: app_user
+    password: app_password
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
