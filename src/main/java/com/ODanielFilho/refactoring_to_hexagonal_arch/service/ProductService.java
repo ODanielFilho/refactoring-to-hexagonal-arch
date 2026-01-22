@@ -3,7 +3,7 @@ package com.ODanielFilho.refactoring_to_hexagonal_arch.service;
 import com.ODanielFilho.refactoring_to_hexagonal_arch.entity.Product;
 import com.ODanielFilho.refactoring_to_hexagonal_arch.entity.dto.ProductDTO;
 import com.ODanielFilho.refactoring_to_hexagonal_arch.mappers.Mappers;
-import com.ODanielFilho.refactoring_to_hexagonal_arch.repository.ProductRepositpry;
+import com.ODanielFilho.refactoring_to_hexagonal_arch.repository.ProductRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +14,10 @@ import java.util.Optional;
 @Service
 public class ProductService {
 
-    private final ProductRepositpry repository;
+    private final ProductRepository repository;
     private final Mappers mapper;
 
-    public ProductService(ProductRepositpry repository, Mappers mapper) {
+    public ProductService(ProductRepository repository, Mappers mapper) {
         this.repository = repository;
         this.mapper = mapper;
     }
