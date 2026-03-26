@@ -1,26 +1,36 @@
-package com.ODanielFilho.refactoring_to_hexagonal_arch.entity;
+package com.ODanielFilho.refactoring_to_hexagonal_arch.infrastructure.adapters.out.persistence;
 
+import com.ODanielFilho.refactoring_to_hexagonal_arch.core.domain.Product;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "products")
-public class Product {
+public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private BigDecimal price;
 
-    public Product(Long id, String name, BigDecimal price) {
+    public ProductEntity(Long id, String name, BigDecimal price) {
         this.id = id;
         this.name = name;
         this.price = price;
     }
 
-    public Product() {
+    public ProductEntity() {
     }
+
+    public static ProductEntity fromDomain(Product product) {
+        return new ProductEntity(product.getId(), product.getName(), product.getPrice());
+    }
+
+    public Product toDomain() {
+        return new Product(this.id, this.name, this.price);
+    }
+
 
     public Long getId() {
         return id;

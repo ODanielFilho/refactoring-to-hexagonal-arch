@@ -18,6 +18,12 @@ public class Product {
         if (price == null || price.compareTo(BigDecimal.ZERO) <= 0) throw new IllegalArgumentException("Invalid price");
     }
 
+    public void updateInfo(String name, BigDecimal price) {
+        this.name = name;
+        this.price = price;
+        this.validate();
+    }
+
     public Long getId() {
         return id;
     }
